@@ -34,7 +34,13 @@ class RUDPostView(generics.RetrieveUpdateDestroyAPIView):
                 raise PermissionDenied('Request not allowed')
         except Post.DoesNotExist:
             raise NotFound(f'Post with code {post_id} does not exist')
-    
+        
+class GetUsername(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        return Response({"username": request.user.username}, status=status.HTTP_200_OK)
+        
 class GetAllPosts(APIView):
     permission_classes = [IsAuthenticated]
 

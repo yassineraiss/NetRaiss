@@ -40,61 +40,60 @@ function RegisterPage() {
             flexDirection: 'column', 
             justifyContent: 'center', 
             alignItems: 'center',
-            padding: '1.4rem',
-            borderRadius: '20px',
-            maxWidth: '400px'
+            height: '100vh'
         }}>
-            <h1 style={{
-                    fontFamily: 'Dosis',
-                    marginTop: 0,
-                    marginBottom: '2rem'
-                }}>
-                Register to Netraiss
-            </h1>
-            <TextField 
-                color='primary'
-                label='Enter a username'
-                type='text'
-                sx={{mb: '1rem'}}
-                onChange={(e) => {setUsername(e.target.value)}}
-            />
-            <TextField 
-                color='primary'
-                label='Enter a password'
-                type='password'
-                sx={{mb: '1rem'}}
-                onChange={(e) => {setPassword(e.target.value)}}
-            />
-            <TextField 
-                color='primary'
-                label={label}
-                type='password'
-                sx={{mb: '2rem'}}
-                error={error}
-                onChange={(e) => {setCpassword(e.target.value)}}
-            />
-            {
-                loading ?
-                <CircularProgress color='primary' />
-                :
-                <Button
-                    variant='contained'
-                    color='primary'
-                    onClick={handleRegister}
-                    style={{
-                        width: '100%',
-                        borderRadius: '20px',
-                    }}
-                >
-                    <h3 style={{
+            <div className='flex-column-center'>
+                <h1 style={{
                         fontFamily: 'Dosis',
-                        margin: 0,
-                        color: 'inherit'
+                        marginTop: 0,
+                        marginBottom: '2rem'
                     }}>
-                        Register
-                    </h3>
-                </Button>
-            }
+                    Register to Netraiss
+                </h1>
+                <TextField 
+                    color='primary'
+                    label='Enter a username'
+                    type='text'
+                    sx={{mb: '1rem'}}
+                    onChange={(e) => {setUsername(e.target.value)}}
+                />
+                <TextField 
+                    color='primary'
+                    label='Enter a password'
+                    type='password'
+                    sx={{mb: '1rem'}}
+                    onChange={(e) => {setPassword(e.target.value)}}
+                />
+                <TextField 
+                    color='primary'
+                    label={label}
+                    type='password'
+                    sx={{mb: '2rem'}}
+                    error={error}
+                    onChange={(e) => {setCpassword(e.target.value)}}
+                />
+                {
+                    loading ?
+                    <CircularProgress color='primary' />
+                    :
+                    <Button
+                        variant='contained'
+                        color='primary'
+                        onClick={handleRegister}
+                        style={{
+                            borderRadius: '20px',
+                        }}
+                    >
+                        <h3 style={{
+                            fontFamily: 'Dosis',
+                            margin: 0,
+                            color: 'inherit'
+                        }}>
+                            Register
+                        </h3>
+                    </Button>
+                }
+            </div>
         </div>
     )
 }

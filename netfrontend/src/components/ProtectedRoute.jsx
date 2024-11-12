@@ -3,6 +3,7 @@ import { jwtDecode } from "jwt-decode";
 import api from "../api";
 import { REFRESH_TOKEN, ACCESS_TOKEN } from "../constants";
 import { useState, useEffect } from "react";
+import { CircularProgress } from "@mui/material";
 
 function ProtectedRoute({ children }) {
     const [isAuthorized, setIsAuthorized] = useState(null);
@@ -47,10 +48,20 @@ function ProtectedRoute({ children }) {
     };
 
     if (isAuthorized === null) {
-        return <h1>Loading...</h1>;
+        return (
+            <div style={{
+                display: 'flex', 
+                flexDirection: 'column', 
+                justifyContent: 'center', 
+                alignItems: 'center',
+                height: '100vh'
+            }}>
+                <CircularProgress color="primary" />
+            </div>
+        )
     }
 
-    return isAuthorized ? children : <Navigate to="/login" />;
+    return isAuthorized ? children : <Navigate to="/welcome" />;
 }
 
 export default ProtectedRoute;

@@ -1,0 +1,86 @@
+:root {
+    box-sizing: border-box;
+    --font-family: 'Dosis','Arial', sans-serif;
+    --primary-light-color: #0066aa;
+    --secondary-light-color: #38476d;
+    --primary-dark-color: #a3daff;
+    --secondary-dark-color: #b5bed3;
+    --dark-background: #28272700;
+}
+
+body {
+    margin: 0;
+    padding-inline: 6vw;
+    font-family: var(--font-family);
+}
+
+h1 {
+    color: var(--primary-light-color);
+    font-size: clamp(1.5rem, 1.5rem + 1vw, 3rem);
+}
+
+h2 {
+    margin: 0.5rem;
+    font-size: clamp(1rem, 1rem + 0.7vw, 2rem);
+}
+
+a {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.main-div {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 1080px;
+}
+
+.flex-inline-between {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.flex-inline {
+    display: flex;
+    gap: 2vw;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.inline-icon {
+    display: flex;
+    align-items: center; /* Align items inside the button */
+    justify-content: flex-start;
+    gap: 1vw; /* Align icon and text to the left */
+}
+
+.inline-icon h3 {
+    margin: 0; /* Remove default margin for better alignment */
+}
+
+.button-container {
+    display: flex;
+    gap: 2vw; /* Optional: add space between the buttons */
+}
+
+.button-container h3 {
+    margin: 0; /* Remove default margin around the h3 */
+}
+
+.secondary-color {
+    color: var(--secondary-light-color);
+}

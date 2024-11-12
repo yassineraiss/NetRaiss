@@ -6,6 +6,7 @@ urlpatterns = [
     path('register', RegisterUserView.as_view(), name='register'),
     path('access-token', TokenObtainPairView.as_view(), name='access-token'),
     path('refresh-token', TokenRefreshView.as_view(), name='refresh-refresh'),
+    path('get-username', GetUsername.as_view(), name='get-username'),
     path("add-post", AddPostView.as_view(), name="add-post"),
     path("rud-post/<int:post_id>", RUDPostView.as_view(), name="rud-post"),
     path("get-all-posts", GetAllPosts.as_view(), name="get-all-posts"),
