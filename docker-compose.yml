@@ -1,16 +1,18 @@
 services:
   backend:
+    container_name: backend
     build:
       context: ./netbackend
-    ports:
-      - "8000:8000"
-
+    expose:
+      - "8000"
+    
   frontend:
-    build:
-      context: ./netfrontend
+    container_name: frontend
+    image: nginx:latest
+    volumes:
+      - ./dist:/usr/share/nginx/html
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
     ports:
-      - "5173:5173"
-    env_file:
-      - ./netfrontend/.env
+      - "80:80"
     depends_on:
       - backend
