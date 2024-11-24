@@ -1,10 +1,26 @@
 services:
+  db:
+    container_name: db
+    image: postgres:13
+    ports:
+      - "5432:5432"
+    env_file:
+      - ./netbackend/.env
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
   backend:
     container_name: backend
     build:
       context: ./netbackend
+    command: >
+      sh -c "python manage.py migrate && gunicorn --bind 0.0.0.0:8000 netbackend.wsgi:application"
     expose:
       - "8000"
+    env_file:
+      - ./netbackend/.env
+    depends_on:
+    - db
     
   frontend:
     container_name: frontend
@@ -16,3 +32,7 @@ services:
       - "80:80"
     depends_on:
       - backend
+      - db
+
+volumes:
+  db_data:
